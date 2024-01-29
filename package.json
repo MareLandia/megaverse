@@ -2,5 +2,6 @@
     "name": "crossmint",
     "description": "Megaverse generator using crossmint api",
     "version": "1.0.0",
+    "type":"module",
     "author": "Mare Maltese"
 }
