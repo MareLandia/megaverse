@@ -1,5 +1,5 @@
-import { COMETH_URL, POLYANET_URL, SOLOON_URL } from "./constants.js";
-import { doPost } from "./api.js";
+import { COMETH_URL, POLYANET_URL, SOLOON_URL, MATRIX_LENGTH } from "./constants.js";
+import { doDelete, doPost } from "./api.js";
 import Cometh from "../comeths/cometh.js";
 import Polyanet from "../polyanets/polyanet.js";
 import Soloon from "../soloons/soloon.js";
@@ -53,4 +53,8 @@ function drawSoloon(item) {
 function drawPolyanet(item) {
     console.log(item.type,'---- (',item.row,',',item.column,')');
     doPost(POLYANET_URL, new Polyanet(item.row, item.column));   
+}
+
+export function cleanMegaVerse(item) {
+    doDelete(item.type, item.row, item.column);
 }

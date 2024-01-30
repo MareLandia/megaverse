@@ -1,10 +1,17 @@
 import astralObjectList from './megaverse.json' assert { type: 'json' };
-import { drawAstralObject } from './utils/logic.js';
+import { drawAstralObject, cleanMegaVerse } from './utils/logic.js';
+
 
 function start(values) {
-    for (const item of values) {
-        drawAstralObject(item);
-    }
+    let waitTime = 300;
+    values.forEach((item, index) => {
+        waitTime = index*1000;
+        setTimeout(() => { drawAstralObject(item) }, waitTime);
+    });
+    // for (const item of values) {
+    //     drawAstralObject(item);
+    //     // cleanMegaVerse(item);
+    // }
 
     printInConsole();
 }
