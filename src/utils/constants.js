@@ -5,5 +5,6 @@ export const API_URL = "https://challenge.crossmint.io/api/";
 export const COMETH_URL = "comeths";
 export const POLYANET_URL = "polyanets";
 export const SOLOON_URL = "soloons";
+export const ASTRAL_URL = "";
 
 export const MAP_URL = `map/${CANDIDATE_ID}/goal`;

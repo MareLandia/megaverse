@@ -1,11 +1,29 @@
-import { CANDIDATE_ID } from "../utils/constants.js";
+import { CANDIDATE_ID, ASTRAL_URL } from "../utils/constants.js";
+import { doDelete, doPost } from "../utils/api.js";
 
 export default class AstralObject {
     constructor(row, column) {
-        console.log('Contructor astral objects');
-        console.log('AO >> setValue row: ', row, ' column: ', column);
+        this.candidateId = CANDIDATE_ID;
         this.row = row;
         this.column = column;
-        this.candidateId = CANDIDATE_ID;
+        this.url = ASTRAL_URL;
+        this.type = '';
+    }
+
+    generateBodyObject() {
+        const body = {
+            row: this.row, 
+            column: this.row,
+            candidateId: this.candidateId
+        };
+        return body;
+    }
+
+    saveServer() {
+        doPost(this.url, this.generateBodyObject());
+    }
+
+    removeServer() {
+        doDelete(this.url, this.generateBodyObject());
     }
 }

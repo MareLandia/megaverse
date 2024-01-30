@@ -1,60 +1,31 @@
-import { COMETH_URL, POLYANET_URL, SOLOON_URL, MATRIX_LENGTH } from "./constants.js";
-import { doDelete, doPost } from "./api.js";
+import { doDelete } from "./api.js";
 import Cometh from "../comeths/cometh.js";
 import Polyanet from "../polyanets/polyanet.js";
 import Soloon from "../soloons/soloon.js";
 
 const AstralTypes = ({
-    Polyanet: 'polyanet',
-    Soloon: 'soloon',
-    Cometh: 'cometh'
+    polyanet: 'polyanet',
+    soloon: 'soloon',
+    cometh: 'cometh'
 });
 
-const Directions = ({
-    Up: "up",
-    Down: "down",
-    Right: "right",
-    Left: "left"
-});
-
-const Colors = ({
-    Blue: "blue",
-    Red: "red",
-    Purple: "purple",
-    White: "white"
-});
-
-export const drawAstralObject = (item) => {
+const getAstral = (item) => {
     switch (item.type) {
-        case AstralTypes.Cometh:
-            drawCometh(item);
-            break;
+        case AstralTypes.cometh:
+            return new Cometh(item.row, item.column, item.direction);
 
-        case AstralTypes.Soloon:
-            drawSoloon(item);
-            break;
+        case AstralTypes.soloon:
+            return new Soloon(item.row, item.column, item.color);
     
         default: 
-            drawPolyanet(item);
-            break;
+            return new Polyanet(item.row, item.column);
     }
 }
 
-function drawCometh(item) {
-    console.log(item.direction, item.type,'---- (',item.row,',',item.column,')');
-    doPost(COMETH_URL, new Cometh(item.row, item.column, item.direction));    
+export const deleteAstralObject = (item) => {
+    getAstral(item).removeServer();
 }
 
-function drawSoloon(item) {
-    console.log(item.color, item.type,'---- (',item.row,',',item.column,')');
-    doPost(SOLOON_URL, new Soloon(item.row, item.column, item.color));    
-}
-
-function drawPolyanet(item) {
-    console.log(item.type,'---- (',item.row,',',item.column,')');
-    doPost(POLYANET_URL, new Polyanet(item.row, item.column));   
-}
-
-export function cleanMegaVerse(item) {
-    doDelete(item.type, item.row, item.column);
+export const saveAstralObject = (item) => {
+    getAstral(item).saveServer();
 }
