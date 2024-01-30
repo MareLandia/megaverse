@@ -47,10 +47,10 @@ const AstralIconCodes = ({
     let moonColor = 'white';
     if (filter.includes('hue-rotate(-50deg)')) {
       moonColor = 'red';
-    } else if (filter.includes('hue-rotate(-180deg)')) {
-      moonColor = 'blue';
     } else if (filter.includes('hue-rotate(-100deg)')) {
       moonColor = 'purple';
+    } else if (filter.includes('hue-rotate(-180deg)')) {
+      moonColor = 'blue';
     }
     let soloon = {
          row: x,

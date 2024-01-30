@@ -1,5 +1,5 @@
-import { CANDIDATE_ID, ASTRAL_URL } from "../utils/constants.js";
-import { doDelete, doPost } from "../utils/api.js";
+import { CANDIDATE_ID, ASTRAL_URL } from "../../constants/constants.js";
+import { doDelete, doPost } from "../../services/api.js";
 
 export default class AstralObject {
     constructor(row, column) {
