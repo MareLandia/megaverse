@@ -1,7 +1,6 @@
-import { doDelete } from "./api.js";
-import Cometh from "../comeths/cometh.js";
-import Polyanet from "../polyanets/polyanet.js";
-import Soloon from "../soloons/soloon.js";
+import Cometh from "../models/comeths/cometh.js";
+import Polyanet from "../models/polyanets/polyanet.js";
+import Soloon from "../models/soloons/soloon.js";
 
 const AstralTypes = ({
     polyanet: 'polyanet',

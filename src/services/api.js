@@ -1,4 +1,4 @@
-import { API_URL, MAP_URL } from "./constants.js";
+import { API_URL, MAP_URL } from "../constants/constants.js";
 
 const callApi = async (url, method, bodyJson) => {
     const requestOptions = {

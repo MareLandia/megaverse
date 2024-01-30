@@ -1,5 +1,5 @@
 import AstralObject from "../astralObjects/astralObject.js";
-import { SOLOON_URL } from "../utils/constants.js";
+import { SOLOON_URL } from "../../constants/constants.js";
 export default class Soloon extends AstralObject {
     constructor(row, column, color) {
         super(row, column);

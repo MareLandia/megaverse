@@ -1,6 +1,6 @@
 import astralObjectList from './megaverse.json' assert { type: 'json' };
-import { saveAstralObject, deleteAstralObject } from './utils/logic.js';
-import { doGetMapIsCorrect } from './utils/api.js';
+import { saveAstralObject, deleteAstralObject } from './controllers/logic.js';
+import { doGetMapIsCorrect } from './services/api.js';
 import { printInConsole } from './utils/aux.js';
 
 function start(values) {

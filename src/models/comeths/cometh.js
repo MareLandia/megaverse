@@ -1,5 +1,5 @@
 import AstralObject from "../astralObjects/astralObject.js";
-import { COMETH_URL } from "../utils/constants.js";
+import { COMETH_URL } from "../../constants/constants.js";
 export default class Cometh extends AstralObject {
     constructor(row, column, direction) {
         super(row, column);
